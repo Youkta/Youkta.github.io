@@ -65,7 +65,7 @@ function displayArticle2(article, containerId) {
 function displayArticle3(article, containerId) {
   const container = document.getElementById(containerId);
   container.innerHTML = `
-  <a href="#${article.id}"><img src="${article.image}" alt="${article.headline}" height="210px" width="210px" style="position: absolute; left: 755px;">
+  <a href="#${article.id}"><img src="${article.image}" alt="${article.headline}" height="210px" width="210px">
   <div class="overlay" width="200px">
       <p style="background-color: #000000;color: #ffffff;border-radius: 15px;padding: 5px;font-size: 12px;letter-spacing: 0;">Featured</p>
       <p style="background-color: #000000;color: #ffffff;border-radius: 15px;padding: 5px;font-size: 12px;letter-spacing: 0;">${article.type}</p><br><br>
@@ -84,7 +84,7 @@ function displayArticle3(article, containerId) {
 function displayArticle4(article, containerId) {
   const container = document.getElementById(containerId);
   container.innerHTML = `
-  <a href="#${article.id}"><img src="${article.image}" alt="${article.headline}" height="210px" width="210px" style="position: absolute; left: 755px;bottom: -17px;">
+  <a href="#${article.id}"><img src="${article.image}" alt="${article.headline}" height="210px" width="210px">
   <div class="overlay" width="200px">
       <p style="background-color: #000000;color: #ffffff;border-radius: 15px;padding: 5px;font-size: 12px;letter-spacing: 0;">Featured</p>
       <p style="background-color: #000000;color: #ffffff;border-radius: 15px;padding: 5px;font-size: 12px;letter-spacing: 0;">${article.type}</p><br><br>

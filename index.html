@@ -1,1 +1,398 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blogs</title>
+    <script src="task2script.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Calibri";
+            letter-spacing: -1px;
+            font-weight: 500;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        header {
+            background-image: url('header.jpg');
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        .logo h1{
+            color: #ffffff;
+            font-family: "Georgia";
+            font-size:30px
+        }
+
+        .logo span{
+            font-size:60px;
+            font-weight: 100;
+            font-family: "Georgia";
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li a {
+            padding: 15px 20px 15px 20px;
+            display: flex;
+            color: #000000;
+            text-decoration: none;
+            font-family: "Trebuchet MS";
+            font-size: 20px;
+            font-weight: bold;
+            box-sizing: border-box;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: rgb(255, 0, 0);
+        }
+
+        nav svg {
+          transition: width 0.3s ease;
+          cursor: pointer;
+        }
+
+        nav svg:hover {
+            width: 25px;
+        }
+
+        .hero {
+            padding-left: 20px;
+            background-color: #ededed;
+            font-family: "Trebuchet MS";
+            align-items: center;
+        }
+
+        marquee {
+            display: inline-flex;
+            width: 1050px;
+        }
+
+        .hero svg {
+            display: inline;
+            margin-right: 10px; 
+        }
+
+        .hero h1 {
+            display: inline;
+        }
+
+        .hero p {
+            display: inline;
+            font-size: 20px;
+            color: #545353;
+            padding-bottom: 25px;
+            margin-left: 50px;
+            text-align: center;
+        }
+
+        .container {
+        display: flex;
+        padding-top: 30px;
+        flex-wrap: wrap;
+        }
+  
+        .tile {
+        width: 33%;
+        height: 70%;
+        padding: 20px;
+        border-radius: 8px;
+        color:#ffffff;
+        line-height: 1.2;
+        cursor: pointer;
+        }
+
+        .popuptext {
+        width: 50%;
+        height: 25%;
+        top: 0;
+        position: absolute;
+        z-index:5;
+        visibility: hidden;
+        display: none;
+        line-height: 1.6;
+        background-color:#ededed;
+        color: #000000;
+        font-size: 18px;
+        text-align: justify;
+        padding: 5px 20px 5px 20px;
+        border: solid 2px #A8A199;
+        border-radius: 8px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 3px 3px 20px rgb(0 0 0 / 0.4);
+        }
+
+        .popuptext a{
+        font-size: 30px;
+        float: right;
+        }
+
+        .tile .popuptext a:link {
+        color: black;
+        }
+
+        .tile .popuptext a:visited {
+        color: black;
+        }
+
+        .tile .popuptext a:hover{
+        color: skyblue;
+        }
+
+        .tile .popuptext a:active {
+        color: pink;
+        }
+
+        .popuptext h3{
+        font-size: 20px;
+        font-weight: bold;
+        color: #000000;
+        text-align: center;
+        }
+
+        .popuptext:target {
+        visibility: visible;
+        display: block;
+        }
+
+        .tile img {
+        border-radius: 8px;
+        margin-bottom: 15px;
+        object-fit: cover;
+        }
+    
+        #tile1 .overlay{
+        background-color: #9a9a9a7f;
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        bottom: 20px;
+        margin-left:20px;
+        width: 380px;
+        text-align: justify;
+        font-family: sans-serif;
+        font-stretch: narrower;
+        }
+
+        #tile2 .overlay{
+        background-color: #9a9a9a7f;
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        bottom: 20px;
+        margin-left:20px;
+        width: 230px;
+        text-align: justify;
+        font-family: sans-serif;
+        font-weight: 400;
+        }
+
+        #tile3 .overlay{
+        background-color: #9a9a9a7f;
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        left: 755px;
+        bottom: 230px;
+        margin-left:20px;
+        width: 170px;
+        text-align: justify;
+        font-family: sans-serif;
+        font-weight: 400;
+        }
+
+        #tile4 .overlay{
+        background-color: #9a9a9a7f;
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        left: 755px;
+        bottom: 20px;
+        margin-left:20px;
+        width: 170px;
+        text-align: justify;
+        font-family: sans-serif;
+        font-weight: 400;
+        }
+
+        .overlay svg {
+        display: inline;
+        margin-top: 5px;
+        position: relative;
+        top: 5px;
+        }
+
+        .overlay p {
+        display: inline;
+        margin: 5px;
+        }
+
+        .sidebar {
+            position: absolute;
+            top: 255px;
+            right: 30px;
+            float:right;
+        }
+
+        #sidebar-articles {
+            height: 360px;
+            overflow-y:scroll;
+            overflow-x:hidden;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            display: flex;
+            background-color: #ffffff;
+            line-height: 1;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            width: 500px;
+            height:80px;
+        }
+
+        .sidebar ol {
+            list-style: none;
+            display: flex;
+            background-color: #ffffff;
+            line-height: 1;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            width: 500px;
+            height:60px;
+        }
+
+        .sidebar ol li a {
+            padding: 20px 100px 20px 100px;
+            display: flex;
+            color: #000000;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight:300;
+            letter-spacing: 0px;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar ol li a:hover {
+            color: rgb(255, 0, 0);
+        }
+
+        .sidebar ul li img {
+            margin: 10px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        a:link {
+        color: black;
+        }
+
+        a:visited {
+        color: black;
+        }
+
+        a:hover {
+        color: skyblue;
+        }
+        
+        a:active {
+        color: pink;
+        }
+
+        .tile a:link {
+        color: white;
+        }
+
+        .tile a:visited {
+        color: white;
+        }
+
+        .tile a:hover{
+        color: skyblue;
+        }
+
+        .tile a:active {
+        color: pink;
+        }
+
+    </style>
+</head>
+<body style="background-color: #f6f6f6;">
+    <header>
+        
+            <div class="logo">
+                <h1><span>&nbsp;&nbsp;&nbsp;T</span>HE<span>N</span>EWS<span>H</span>IVE</h1>
+            </div>
+    </header>
+        
+            <nav>
+                <ul class="tabs">
+                    <li><a href="#" style="background-color: #000000; color:#ffffff;margin-left: 20px;">HOME</a></li>
+                    <li><a href="#">NEWS</a></li>
+                    <li><a href="#">WORLD</a></li>
+                    <li><a href="#">BUSINESS</a></li>
+                    <li><a href="#">POLITICS</a></li>
+                    <li><a href="#">ENTERTAINMENT</a></li>
+                    <li><a href="#">SPORTS</a></li>
+                    <li><svg id="down" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" width=20px style="display: block; margin-top: 20px;">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg></li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" width="20px" style="display:inline; margin-left: auto; margin-right:30px; margin-top: 20px;position:relative;bottom: 10px;">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </ul>
+                
+            </nav>
+        
+    
+    <section class="hero">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" height="20px">
+        <path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z" clip-rule="evenodd" />
+      </svg>      
+            <h1>BREAKING NEWS</h1>
+            <marquee scrollamount="10" behavior="scroll" direction="right"><p style="font-weight: bolder;color: blue;"> Local coming back on the street again after </p></marquee>
+            <p style="float: right; margin-right:20px;">°, May 16, 2024</p>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" style="float:right;margin-right:0;position:relative;margin-top:5px" height="25px"><path d="M481.2 0C417 0 363.5 46.5 353.7 107.6c35.4 17.6 60.2 53.3 62.1 95.1c23.2 11 42 29.7 53.1 52.7c4 .4 8.1 .6 12.3 .6c34.9 0 66.7-13.8 89.9-36.1c5.1-4.9 6.4-12.5 3.2-18.7s-10.1-9.7-17-8.6c-4.9 .8-10 1.3-15.2 1.3c-49 0-88.4-39.3-88.4-87.4c0-32.6 18-61.1 44.9-76.1c6.1-3.4 9.3-10.5 7.8-17.4s-7.3-12-14.3-12.6c-3.6-.3-7.3-.5-10.9-.5zM367.9 383.9c44.2 0 80-35.8 80-80c0-39.3-28.4-72.1-65.8-78.7c1.2-5.6 1.9-11.3 1.9-17.2c0-44.2-35.8-80-80-80c-17 0-32.8 5.3-45.8 14.4C241.3 114.6 210.8 96 176 96c-53 0-96 43-96 96l0 1.3c-45.4 7.6-80 47.1-80 94.6c0 53 43 96 96 96H367.9zM85.4 420.1c-11-7.4-25.9-4.4-33.3 6.7l-32 48c-7.4 11-4.4 25.9 6.7 33.3s25.9 4.4 33.3-6.7l32-48c7.4-11 4.4-25.9-6.7-33.3zm96 0c-11-7.4-25.9-4.4-33.3 6.7l-32 48c-7.4 11-4.4 25.9 6.7 33.3s25.9 4.4 33.3-6.7l32-48c7.4-11 4.4-25.9-6.7-33.3zm96 0c-11-7.4-25.9-4.4-33.3 6.7l-32 48c-7.4 11-4.4 25.9 6.7 33.3s25.9 4.4 33.3-6.7l32-48c7.4-11 4.4-25.9-6.7-33.3zm96 0c-11-7.4-25.9-4.4-33.3 6.7l-32 48c-7.4 11-4.4 25.9 6.7 33.3s25.9 4.4 33.3-6.7l32-48c7.4-11 4.4-25.9-6.7-33.3z"/></svg>
+            </section>
+
+    <div class="container">
+        <div class="tile" id="tile1">
+        </div>
+        <div class="tile" id="tile2">
+        </div>
+        <div class="tile" id="tile3">
+        </div>
+        <div class="tile" id="tile4">
+        </div>
+    </div>
+
+    <aside class="sidebar">
+            <ol>
+                <li><a href="#" style="background-color: #000000; color:#ffffff;border-radius: 8px 0 0 8px;">Latest</a></li>
+                <li><a href="#" style="border-radius: 0 8px 8px 0;">Popular</a></li>
+            </ol>
+            <div id="sidebar-articles">
+            </div>
+    </aside>
+</body>
+</html>

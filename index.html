@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>My Blogs</title>
     <script src="task2script.js"></script>
     <style>
@@ -25,6 +25,7 @@
 
         header {
             background-image: url('header.jpg');
+            width: 100%;
             color: #fff;
             padding: 10px 0;
         }
@@ -73,6 +74,7 @@
 
         .hero {
             padding-left: 20px;
+            width: 100%;
             background-color: #ededed;
             font-family: "Trebuchet MS";
             align-items: center;
@@ -100,28 +102,38 @@
             margin-left: 50px;
             text-align: center;
         }
-
+        /*from here*/
         .container {
         display: flex;
-        padding-top: 30px;
-        flex-wrap: wrap;
+        height: 600px;
+        width: 90%;
+        margin:10px;
+        flex-direction: row;
+        justify-content: flex-start;
+        }
+
+        .subcontainer{
+        display: flex;
+        height: 400px;
+        width: 250px;
+        margin:5px;
+        flex-direction: column;
+        justify-content: flex-start;
         }
   
         .tile {
-        width: 33%;
-        height: 70%;
-        padding: 20px;
+        flex: 1;
         border-radius: 8px;
         color:#ffffff;
         line-height: 1.2;
-        cursor: pointer;
+        margin: 10px;
         }
 
         .popuptext {
         width: 50%;
         height: 25%;
         top: 0;
-        position: absolute;
+        position: relative;
         z-index:5;
         visibility: hidden;
         display: none;
@@ -161,6 +173,22 @@
         color: pink;
         }
 
+        .ctile .popuptext a:link {
+        color: black;
+        }
+
+        .ctile .popuptext a:visited {
+        color: black;
+        }
+
+        .ctile .popuptext a:hover{
+        color: skyblue;
+        }
+
+        .ctile .popuptext a:active {
+        color: pink;
+        }
+
         .popuptext h3{
         font-size: 20px;
         font-weight: bold;
@@ -173,6 +201,29 @@
         display: block;
         }
 
+        .ctile {
+        flex:0 0;
+        border-radius: 8px;
+        color:#ffffff;
+        line-height: 1.2;
+        margin: 0;
+        }
+
+        #tile3 {
+        position: relative;
+        top: 5px;
+        }
+
+        #tile4 {
+        position: relative;
+        bottom: 163px;
+        }
+  
+        .ctile img {
+        border-radius: 8px;
+        margin:0px;
+        }
+
         .tile img {
         border-radius: 8px;
         margin-bottom: 15px;
@@ -183,21 +234,20 @@
         background-color: #9a9a9a7f;
         border-radius: 5px;
         padding: 5px;
-        position: absolute;
-        bottom: 20px;
+        position: relative;
+        bottom: 200px;
         margin-left:20px;
         width: 380px;
         text-align: justify;
         font-family: sans-serif;
-        font-stretch: narrower;
         }
 
         #tile2 .overlay{
         background-color: #9a9a9a7f;
         border-radius: 5px;
         padding: 5px;
-        position: absolute;
-        bottom: 20px;
+        position: relative;
+        bottom: 200px;
         margin-left:20px;
         width: 230px;
         text-align: justify;
@@ -209,10 +259,10 @@
         background-color: #9a9a9a7f;
         border-radius: 5px;
         padding: 5px;
-        position: absolute;
-        left: 755px;
-        bottom: 230px;
-        margin-left:20px;
+        position: relative;
+        left: 0px;
+        bottom: 180px;
+        margin-left:10px;
         width: 170px;
         text-align: justify;
         font-family: sans-serif;
@@ -223,10 +273,10 @@
         background-color: #9a9a9a7f;
         border-radius: 5px;
         padding: 5px;
-        position: absolute;
-        left: 755px;
-        bottom: 20px;
-        margin-left:20px;
+        position: relative;
+        left: 0px;
+        bottom: 180px;
+        margin-left:10px;
         width: 170px;
         text-align: justify;
         font-family: sans-serif;
@@ -246,10 +296,8 @@
         }
 
         .sidebar {
-            position: absolute;
-            top: 255px;
-            right: 30px;
             float:right;
+            margin: 0 0 0 20px ;
         }
 
         #sidebar-articles {
@@ -335,6 +383,22 @@
         color: pink;
         }
 
+        .ctile a:link {
+        color: white;
+        }
+
+        .ctile a:visited {
+        color: white;
+        }
+
+        .ctile a:hover{
+        color: skyblue;
+        }
+
+        .ctile a:active {
+        color: pink;
+        }
+
     </style>
 </head>
 <body style="background-color: #f6f6f6;">
@@ -380,19 +444,20 @@
         </div>
         <div class="tile" id="tile2">
         </div>
-        <div class="tile" id="tile3">
+        <div class="subcontainer">
+        <div class="ctile" id="tile3">
         </div>
-        <div class="tile" id="tile4">
+        <div class="ctile" id="tile4">
         </div>
-    </div>
-
-    <aside class="sidebar">
+        </div>
+    <div class="sidebar"><aside>
             <ol>
                 <li><a href="#" style="background-color: #000000; color:#ffffff;border-radius: 8px 0 0 8px;">Latest</a></li>
                 <li><a href="#" style="border-radius: 0 8px 8px 0;">Popular</a></li>
             </ol>
             <div id="sidebar-articles">
             </div>
-    </aside>
+    </aside></div>
+</div>
 </body>
 </html>

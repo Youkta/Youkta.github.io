@@ -15,6 +15,20 @@
             font-weight: 500;
         }
 
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px     rgba(148, 148, 148, 0.3); 
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px     rgba(0,0,0,0.5); 
+        }
+
         a{
             text-decoration: none;
         }
@@ -102,7 +116,7 @@
             margin-left: 50px;
             text-align: center;
         }
-        /*from here*/
+        
         .container {
         display: flex;
         height: 600px;
@@ -150,6 +164,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         box-shadow: 3px 3px 20px rgb(0 0 0 / 0.4);
+        overflow: auto;
         }
 
         .popuptext a{
